@@ -64,12 +64,12 @@ def verify_user(uid, psw):
         return False
 
 def get_random_articles(num):
-    sql = 'SELECT a_id FROM article LIMIT %d;' % num
+    sql = 'SELECT a_id AS aid FROM article LIMIT %d;' % num
     outcome = query(sql)
     return outcome
 
-def add_article(uid, tittle, mode, content):
-    sql = 'INSERT INTO article(u_id, a_tittle, a_mode, a_content) VALUES(\"%s\", \"%s\", \"%s\", \"%s\");' % (uid, tittle, mode, content);
+def add_article(uid, title, mode, content):
+    sql = 'INSERT INTO article(u_id, a_title, a_mode, a_content) VALUES(\"%s\", \"%s\", \"%s\", \"%s\");' % (uid, title, mode, content);
     outcome = execute(sql)
     return outcome
 
@@ -79,16 +79,23 @@ def get_articles(uid):
 
 def get_article(aid):
     sql = """SELECT article.u_id AS uid,
-    article.a_tittle AS tittle,
+    article.a_title AS title,
     article.a_mode AS mode,
     article.a_content AS content,
-    user.u_nickname AS nickname
+    user.u_nickname AS nickname,
+    user.u_email AS email,
+    user.u_qq AS qq
     FROM user, article
     WHERE a_id = %d;""" % aid
     return query(sql)
 
 def get_version():
     sql = 'SELECT VERSION() AS version;'
+    return query(sql)
+
+def show_all_articles():
+    # 仅获取100条
+    sql = 'SELECT a_id AS aid, a_title AS title FROM article LIMIT 100;'
     return query(sql)
 
 if __name__ == "__main__":
@@ -101,7 +108,7 @@ if __name__ == "__main__":
 
     # 测试用：article
     # aid为11位long类型，插入时自动生成并返回
-    tittle = '标题tittle'
+    title = '标题title'
     mode = '类型mode'
     content = '内容content'
 
@@ -121,7 +128,7 @@ if __name__ == "__main__":
     # if len(outcome) != 0:
     #     data = outcome[0]
     #     print data
-        # output: {'qq': u'10000', 'nickname': u'\u6635\u79f0nick123', 'email': u'10000@qq.com'}
+    # {'qq': u'10000', 'nickname': u'\u6635\u79f0nick123', 'email': u'10000@qq.com'}
 
     # 获取不存在的用户的信息
     # outcome = get_user_info('unknown_user')
@@ -139,7 +146,7 @@ if __name__ == "__main__":
     # output: False <type 'bool'>
 
     # 插入文章，返回文章id: long
-    # outcome = add_article(uid, tittle, mode, content)
+    # outcome = add_article(uid, title, mode, content)
     # print outcome, type(outcome)
     # 每次插入，返回自增id值(long)，如：
     # 1 <type 'long'>
@@ -156,11 +163,9 @@ if __name__ == "__main__":
     # aid = 1L
     # outcome = get_article(aid)
     # print outcome
-    # [{'content': u'\u5185\u5bb9content', 'tittle': u'\u6807\u9898tittle', 'nickname': u'\u6635\u79f0nick123', 'uid': u'testid', 'mode': u'\u7c7b\u578bmode'}]
+    # [{'qq': u'10000', 'uid': u'testid', 'title': u'\u6807\u9898title', 'content': u'\u5185\u5bb9content', 'mode': u'\u7c7b\u578bmode', 'nickname': u'\u6635\u79f0nick123', 'email': u'10000@qq.com'}]
 
     # 获取最新n条文章：
     # outcome = get_random_articles(10);
     # print outcome
-    # output: [{'a_id': 1L}, {'a_id': 2L}, {'a_id': 3L}]
-
-
+    # output: [{'aid': 1L}, {'aid': 2L}, {'aid': 3L}]
