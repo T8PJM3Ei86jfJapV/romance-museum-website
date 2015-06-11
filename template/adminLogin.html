@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="{{static_url("js/jquery-1.11.1.min.js")}}"></script>
+    <script type="text/javascript" src="{{static_url("js/adminLogin.js")}}"></script>
+</head>
+<!--这个页面是管理员删贴登陆的界面-->
+<!--前端会将管理员登陆id(adminId), 管理员登陆密码(adminPassword)传给后台-->
+<!--后台判断以后将登陆成功与否信息返回给前台-->
+<body>
+
+<form method="post">
+    <span class="adminName">
+        Name:
+        <input type="text" name="id">
+    </span>
+    <span class="adminPassword">
+        Password：
+        <input type="password" name="password">
+    </span>
+    <span class="submit">
+        <input type="submit" value="登录">
+    </span>
+</form>
+
+</body>
+</html>

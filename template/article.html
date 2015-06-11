@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset='UTF-8'>
+    <link rel="stylesheet" href="{{static_url("css/article.css")}}">
+</head>
+<body>
+	<div class='header'>
+        <span class="exit">
+			<a href="/profile/{{id}}">{{name}}</a>
+			<a href="/newBlog">发表文章</a>
+			<a href="/logout">退出</a>
+		</span>
+	</div>
+	<div class='body left'>
+        <ul class="userInfo">
+            <li class="item userName" href="/profile/{{txt["Autid"]}}">
+                {{txt["Autname"]}}
+                <!--此处需要替换成字段-->
+            </li>
+            <li class="item userEmail">
+                {{txt["Autmail"]}}
+                <!--此处需要替换成字段-->
+            </li>
+            <li>
+                {{txt["Autqq"]}}
+            </li>
+        </ul>
+
+	</div>
+	<div class='body right'>
+        <div class="articleDetial">
+            <h1>{{txt["Title"]}}</h1>
+            <span class="author" href="/profile/{{txt["Autid"]}}">{{txt["Autname"]}}</span>
+            <div class="content">
+                {{txt["Content"]}}
+            </div>
+            <!--此处需要替换成字段-->
+        </div>
+	</div>
+</body>
+</html>

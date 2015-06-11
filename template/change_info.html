@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{{static_url("css/userinfo.css")}}">
+  <link href="{{static_url("css/bootstrap.min.css")}}" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+      <span class="exit">
+        <a href="/logout">退出</a>
+        <a href="/profile/{{id}}">{{name}}</a>
+      </span>
+  </div>
+  <div id="passwordChange" name="passwordChange">
+       <form action=""  class="form3" method = "post">
+        <ul>
+          <li>
+            <label for = "userName">用户名:</label><input type = "text" id="userName" class = "userName" name="userName" maxlength="16"/>
+            <span>(请输入您的用户名)</span>
+          </li>
+          <li>
+            <label for = "orginalPassword">原有密码:</label><input type = "password" id="orginalPassword" class = "orginalPassword" name="orginalPassword" maxlength="16"/>
+            <span>(请输入您的原有密码)</span>
+          </li>
+          <li>
+            <label for = "newPassword">新密码：</label><input type="password" id="newPassword" class = "newPassword" name="newPassword" placeholder="密码" maxlength="16">
+            <span>(大小写字母加数字或符号)</span>
+          </li>
+          <li>
+            <label for = "password-confirm">确认密码：</label><input type="password" id="password-confirm" class = "password-confirm" name="password-confirm" placeholder="确认密码" maxlength="16" />
+            <span>(请再次输入相同的密码)</span>
+          </li>
+          <li>
+            <label for = "email">邮箱:</label><input type = "text" id="email" class = "email" name="email" maxlength="20"/>
+            <span>(请输入您的邮箱)</span>
+          </li>
+          <li>
+            <label for = "qq">QQ:</label><input type = "text" id="qq" class = "qq" name="qq" maxlength="16"/>
+            <span>(可选)</span>
+          </li>
+          <li id="submitButton">
+           <button class="btn btn-warning" type="submit">确认修改</button>
+           <button class="btn btn-warning" id = "cancelChange">取消修改</button>
+         </li>
+
+       </ul>
+     </form>
+   </div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+
+body {
+    padding: 0;
+    margin: 0;
+    width:100%;
+    font-family: 'Helvetica Neue','Hiragino Sans GB','Microsoft YaHei',STHeiti,Helvetica,Arial,sans-serif;
+}
+
+.header{
+    height: 60px;
+    background-color: black;
+}
+.header a{
+    float: right;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+.content {
+    width:80%;
+    margin: 0 auto;
+}
+
+.titleInput {
+    width: 60%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titleInput input {
+    width: 100%;
+    height: 50px;
+    border: 2px solid #337ab7;
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    font-family: 'Helvetica Neue','Hiragino Sans GB','Microsoft YaHei',STHeiti,Helvetica,Arial,sans-serif;
+    font-size: 1.5rem;
+}
+
+
+.contentInput {
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.modeChoose {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.modeChoose span {
+    display: block;
+    width: 20%;
+}
