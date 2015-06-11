@@ -7,7 +7,7 @@ try:
 except ImportError:
     import saemonitor as sae
 
-DB_HOST = "%s:%d" % (sae.const.MYSQL_HOST, sae.const.MYSQL_PORT)
+DB_HOST = "%s:%s" % (sae.const.MYSQL_HOST, sae.const.MYSQL_PORT)
 DB_NAME = sae.const.MYSQL_DB
 DB_USER = sae.const.MYSQL_USER
 DB_PSWD = sae.const.MYSQL_PASS

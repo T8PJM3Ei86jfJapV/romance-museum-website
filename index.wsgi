@@ -7,6 +7,6 @@ packages = os.path.join(root, 'packages')
 sys.path.insert(0, os.path.join(packages, 'tornado-3.2.1'))
 sys.path.insert(0, os.path.join(packages, 'torndb-0.2'))
 
-import server
+import application
 
-application = server.application
+application = application.application
