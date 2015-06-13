@@ -3,24 +3,161 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="{{static_url("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{static_url("css/adminManage.css")}}">
 </head>
 <!--这个页面是管理员用来管理文章的，我再想想接口-->
 
 <body>
 
-{% for articleItem in allArticleItem %}
 
-<div class="article-item">
-    <div class="article" href="{{articleItem["aid"]}}">{{articleItem["title"]}}
-    </div>
-    <div class="deleteAction">
-        <button>删除</button>
-    </div>
-
+<div class="header">
+    <span class="userName">
+        <a href="/profile/{{id}}">{{name}}</a>
+    </span>
+    <span class="newArticle">
+        <a href="/newBlog">发表文章</a>
+    </span>
+    <span class="exit">
+        <a href="/logout">退出</a>
+    </span>
 </div>
 
-{% end for %}
 
+
+<div class="content">
+    <div role="tabpanel">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#articleItems" aria-controls="articleItems" role="tab" data-toggle="tab">恋文管理</a></li>
+            <li role="presentation"><a href="#imageItems" aria-controls="imageItems" role="tab" data-toggle="tab">图片管理</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane" id="imageItems">
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/01.jpg")}}">
+                        <div class="expression">
+                            <span>做不了决定的时候，让时间帮你决定宁愿犯错，不留遗憾</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger">删除</button>
+                </div>
+
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/02.jpg")}}">
+                        <div class="expression">
+                            <span>过去了就是昨天，新的一页翻开还是晴朗的天</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger">删除</button>
+                </div>
+
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/03.jpg")}}">
+                        <div class="expression">
+                            <span>宁愿犯错，不留遗憾</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger">删除</button>
+                </div>
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/04.jpg")}}">
+                        <div class="expression">
+                            <span>一帘清雨，垂下了一汪泪，一份缠绵，揉断了心碎</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger">删除</button>
+                </div>
+
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/05.jpg")}}">
+                        <div class="expression">
+                            <span>爱一个人真的好难</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger">删除</button>
+                </div>
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/06.jpg")}}">
+                        <div class="expression">
+                            <span>你还喜欢我吗</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger">删除</button>
+                </div>
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/07.jpg")}}">
+                        <div class="expression">
+                            <span>努力奋斗，不留遗憾</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger">删除</button>
+                </div>
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/08.jpg")}}">
+                        <div class="expression">
+                            <span>未来属于今天拼搏的人</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger">删除</button>
+                </div>
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/09.jpg")}}">
+                        <div class="expression">
+                            <span>和爱的人一起共创美好的明天</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger">删除</button>
+                </div>
+                <div class="image-item">
+                    <div class="image">
+                        <img src="{{static_url("img/10.jpg")}}">
+                        <div class="expression">
+                            <span>这么多年了，我对的你的感情，并没有改变</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger">删除</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="{{static_url("js/jquery-1.11.1.min.js")}}"></script>
+<script type="text/javascript" src="{{static_url("js/bootstrap.min.js")}}"></script>
+<script type="text/javascript" src="{{static_url("js/adminManage.js")}}"></script>
+
+<script>
+    $('.nav.nav-tabs a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+</script>
 
 </body>
 </html>

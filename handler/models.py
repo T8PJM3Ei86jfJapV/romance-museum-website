@@ -141,7 +141,7 @@ class ArticleHandler(tornado.web.RequestHandler):
         name = self.get_secure_cookie("name")
         if ArticleID:
             # 获取article
-            article = dao.get_article(aid)
+            article = dao.get_article(ArticleID)[0]
             art_info = {"Title":article.title,"Artid":ArticleID,"Content":article.content,"Autid":article.uid,"Autname":article.nickname,"Autmail":article.email,"Autqq":article.qq}#get those information
             self.render('article.html', name = name,id = id,txt = art_info)
         else:
@@ -152,14 +152,14 @@ class UserInfoHandler(tornado.web.RequestHandler):
     def get(self, UserID):
         name = self.get_secure_cookie("name")
         # 获取用户信息
-        info = dao.get_user_info(uid)
+        info = dao.get_user_info(UserID)[0]
         mail = info.email #get mail
         qq = info.qq #get qq
 
         # from userid get list for (artid, title)
         # artlist = [(1000,'ART1'),(1001,"ART2")]
         artlist = list()
-        aids = [item.aid for item in get_articles(uid)]
+        aids = [item.aid for item in dao.get_articles(UserID)]
         for aid in aids:
             article = dao.get_article(aid)[0]
             art = (aid, article.title)
@@ -175,35 +175,38 @@ class MuseumHandler(tornado.web.RequestHandler):
     def get(self):
         name = self.get_secure_cookie("name")
         id = self.get_secure_cookie("id")
-        exh = [{"src":"{{static_url(\"img/model1.jpg\")}}","content":"Test1"},{"src":"{{static_url(\"img/model1.jpg\")}}","content":"Test2"}]
-        self.render('imageItem.html', name = name, id =id, allImageItem = exh)
+        self.render('imageItem.html', name = name, id =id)
 
 class AdminLoginHandler(tornado.web.RequestHandler):
     def get(self):
-        id = self.get_secure_cookie("id")
-        if id:
-            self.redirect('/')
-        else:
-            self.render('adminLogin.html')
+        # id = self.get_secure_cookie("id")
+        # if id:
+        #     self.redirect('/')
+        # else:
+        self.render('adminLogin.html')
 
     def post(self):
         id =self.get_argument("id")
         paw = self.get_argument("password")
+        print(id)
+        print(paw)
         if id == "admin" and paw == "admin":
             self.set_secure_cookie("id", id)
             self.set_secure_cookie("name", 'admin')
-            self.redirect('/')
+            self.redirect('/adminManage')
         else:
             self.redirect('/adminlogin')
             
 class AdminHandler(tornado.web.RequestHandler):
     def get(self):
         id = self.get_secure_cookie('id')
+        print("ahahah")
+        print(id)
         if id == "admin":
             # all article title and id
             # artlist= [{"title":"t1","aid":1000},{"title":"t2","aid":1001}]
             artlist = dao.show_all_articles()
-            self.render('adminManage.html', allArticleItem = artlist)
+            self.render('adminManage.html', name = "admin", id = id)
         else:
             self.redirect('/')
 
@@ -216,16 +219,46 @@ class NewblogHandler(tornado.web.RequestHandler):
         else:
             self.redirect('/login')
             
+    # def post(self):
+    #     uid = self.get_secure_cookie('id')
+    #     title = self.get_argument("title")
+    #     content = self.get_argument("content")
+    #     mode = self.get_argument("mode")
+    #     if title and content and mode:
+    #         # save article and return article id
+    #         # artid = "1000"
+    #         artid = dao.add_article(uid, title, mode, content)
+    #         self.redirect('/article/'+artid)
+class NewCreateArticleHandler(tornado.web.RequestHandler):
     def post(self):
         uid = self.get_secure_cookie('id')
-        title = self.get_argument("title")
-        content = self.get_argument("content")
-        mode = self.get_argument("mode")
-        if title and content and mode:
-            # save article and return article id
-            # artid = "1000"
-            artid = dao.add_article(uid, title, mode, content)
-            self.redirect('/article/'+artid)
+        uri = self.request.body
+        print(self.request.body)
+    
+        title = ''
+        mode = ''
+        content = ''
+        for i in uri.split('&'):
+            data = i.split('=')
+            if data[0] == 'title':
+                title = data[1]
+            if data[0] == 'mode':
+                mode = data[1]
+            if data[0] == 'html':
+                content = data[1]
+
+
+
+        if title:
+            if mode:
+                if content:
+                    # save article and return article id
+                    # artid = "1000"
+                    artid = dao.add_article(uid, title, mode, content)
+                    # self.redirect('/article/'+ str(artid))
+                    self.write(str(artid))
+                    self.finish()
+
         
 class NewexhHandler(tornado.web.RequestHandler):
     def get(self):

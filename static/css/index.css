@@ -2,57 +2,12 @@
 	margin: 0;
 	padding: 0;
 }
-body{
-	background-color: silver;
-}
-.header{
-	height: 60px;
-	width: 100%;
-	background-color: black;
-	//position: fixed;
-}
-a{
-	text-decoration: none;
+
+
+#banner{
+	height: 500px;
+	background-image: url('../img/model5.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 	color: white;
-	font-size: 20px;
-	font-family: serif;
-}
-a:hover{
-	color: purple;
-}
-.logo img{
-	height: 100px;
-	width: 200px;
-	float: left;
-	margin-left: 10%;
-}
-.exit{
-	float: right;
-	margin-right: 20px;
-	margin-top: 30px;
-}
-.content{
-	width: 60%;
-	float: left;
-}
-.content p{
-	background-color: white;
-	border: 1px outset;
-	margin: 20px 50px;
-	padding: 20px;
-	color: gray;
-}
-.content strong{
-	font-size: 20px;
-}
-.selfinf{
-	width: 20%;
-	border: 1px outset;
-	float: right;
-	margin-right: 13%;
-	margin-top: 40px;
-}
-.footer{
-	clear: both;
-	margin-top: 80%;
 }

@@ -86,7 +86,7 @@ def get_article(aid):
     user.u_email AS email,
     user.u_qq AS qq
     FROM user, article
-    WHERE a_id = %d;""" % aid
+    WHERE article.a_id = %s;""" % aid
     return query(sql)
 
 def get_version():

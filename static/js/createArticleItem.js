@@ -6,30 +6,30 @@ $(document).ready(function(){
 
     //获取用户名,html,type post到后台
 
-    var ue = UE.getEditor('editor');
 
 
 
-    $("form").submit(function(){
+    $(".submit").click(function(e){
+
         var userName = $('.header .userName a').text();
-        var articleHtml = UE.getEditor('editor').getAllHtml();
+        var articleContent = $('.contentInput textarea').val();
         var type = $('input[name="mode"]').val();
         var title = $('.titleInput input').val();
-        $.post(
-            //这个路径你自己补上啦
-            "abc.html",
-            {
+        $.ajax({
+            url: "/createArticle",
+            type: 'POST',
+            data: {
                 title: title,
                 name: userName,
-                html: articleHtml,
+                html: articleContent,
                 mode: type
-
             },
-            function(data) {
-                if(!data) {
-                    alert("你的文章尚未提交成功")
-                }
+            success: function(data) {
+                window.location = "/article/" + data;
             }
-        )
+        });
+
+
+
     });
 });

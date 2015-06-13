@@ -15,7 +15,7 @@ from handler.models import UpdateUserInfoHandler
 from handler.models import MailboxHandler
 from handler.models import MuseumHandler
 from handler.models import AdminLoginHandler
-from handler.models import AdminHandler, ArticleHandler,NewblogHandler,NewexhHandler
+from handler.models import AdminHandler, ArticleHandler,NewblogHandler,NewexhHandler, NewCreateArticleHandler
 #from handler.models import HTTP404Error
 
 url = [
@@ -32,5 +32,6 @@ url = [
     (r'/article/(\w+)', ArticleHandler),
     (r'/newBlog', NewblogHandler),
     (r'/newExhibit', NewexhHandler),
+    (r'/createArticle', NewCreateArticleHandler)
     #(r'.*', HTTP404Error)
 ]

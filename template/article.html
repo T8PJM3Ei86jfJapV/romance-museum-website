@@ -5,13 +5,17 @@
     <link rel="stylesheet" href="{{static_url("css/article.css")}}">
 </head>
 <body>
-	<div class='header'>
+	<div class="header">
+        <span class="userName">
+            <a href="/profile/{{id}}">{{name}}</a>
+        </span>
+        <span class="newArticle">
+            <a href="/newBlog">发表文章</a>
+        </span>
         <span class="exit">
-			<a href="/profile/{{id}}">{{name}}</a>
-			<a href="/newBlog">发表文章</a>
-			<a href="/logout">退出</a>
-		</span>
-	</div>
+            <a href="/logout">退出</a>
+        </span>
+    </div>
 	<div class='body left'>
         <ul class="userInfo">
             <li class="item userName" href="/profile/{{txt["Autid"]}}">

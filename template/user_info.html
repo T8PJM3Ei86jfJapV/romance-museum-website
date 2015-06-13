@@ -7,43 +7,48 @@
 </head>
 <body>
    <div class="header">
-      <span class="exit">
-        <a href="/logout">退出</a>
-        <a href="/profile/{{id}}">{{name}}</a>
-      </span>
+        <span class="userName">
+            <a href="/profile/{{id}}">{{name}}</a>
+        </span>
+        <span class="newArticle">
+            <a href="/newBlog">发表文章</a>
+        </span>
+        <span class="exit">
+            <a href="/logout">退出</a>
+        </span>
     </div>
 
-      <div class="message">
-       <ul>
-        <li>
-          <span class ="messageTitle"><b>用户名：</b></span><span class = "messageDetail">{{name}}</span>
-        </li>
-        <li>
-          <span class ="messageTitle"><b>邮箱：</b></span><span class = "messageDetail">{{mail}}</span>
-        </li>
-        <li>
-          <span class ="messageTitle"><b>qq：</b></span><span class = "messageDetail">{{qq}}</span>
-        </li>
-        <li><span class ="messageEdit"><a href="/update" id="change">[修改个人信息]</a></span></li><br><br><br>
-        <li>
-          <span class ="messageTitle"><b>我发布的恋文：</b></span><span class = "messageDetail">
-          {% for art in arts%}
-            <a href="/article/{{art[0]}}" class = "messageTitle"> {{art[1]}}</a>
-            <br>
-          {% end %}
-          </span>
-        </li><br>
-        <li>
-          <span class ="messageTitle"><b>我发布的博物馆：</b></span><span class = "messageDetail">
-          {% for mus in muss%}
-            <a href="/article/{{mus[0]}}" class = "messageTitle"> {{mus[1]}}</a>
-            <br>
-          {% end %}
-          </span>
-        </li>
+    <div class="message">
+     <ul>
+      <li>
+        <span class ="messageTitle"><b>用户名：</b></span><span class = "messageDetail">{{name}}</span>
+      </li>
+      <li>
+        <span class ="messageTitle"><b>邮箱：</b></span><span class = "messageDetail">{{mail}}</span>
+      </li>
+      <li>
+        <span class ="messageTitle"><b>qq：</b></span><span class = "messageDetail">{{qq}}</span>
+      </li>
+      <li><span class ="messageEdit"><a href="/update" id="change">[修改个人信息]</a></span></li><br><br><br>
+      <li>
+        <span class ="messageTitle"><b>我发布的恋文：</b></span><span class = "messageDetail">
+        {% for art in arts%}
+          <a href="/article/{{art[0]}}" class = "messageTitle"> {{art[1]}}</a>
+          <br>
+        {% end %}
+        </span>
+      </li><br>
+      <li>
+        <span class ="messageTitle"><b>我发布的博物馆：</b></span><span class = "messageDetail">
+        {% for mus in muss%}
+          <a href="/article/{{mus[0]}}" class = "messageTitle"> {{mus[1]}}</a>
+          <br>
+        {% end %}
+        </span>
+      </li>
 
-      </ul>
-    </div>
+    </ul>
+  </div>
 
 </body>
 </html>

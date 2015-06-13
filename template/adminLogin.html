@@ -5,13 +5,18 @@
     <title></title>
     <script type="text/javascript" src="{{static_url("js/jquery-1.11.1.min.js")}}"></script>
     <script type="text/javascript" src="{{static_url("js/adminLogin.js")}}"></script>
+    <link rel="stylesheet" href="{{static_url("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{static_url("css/adminLogin.css")}}">
 </head>
 <!--这个页面是管理员删贴登陆的界面-->
 <!--前端会将管理员登陆id(adminId), 管理员登陆密码(adminPassword)传给后台-->
 <!--后台判断以后将登陆成功与否信息返回给前台-->
 <body>
 
-<form method="post">
+<div class="content">
+    <p>这里是管理员登陆后台</p>
+
+    <form method="post">
     <span class="adminName">
         Name:
         <input type="text" name="id">
@@ -20,10 +25,12 @@
         Password：
         <input type="password" name="password">
     </span>
-    <span class="submit">
-        <input type="submit" value="登录">
-    </span>
-</form>
+
+    <button class="btn btn-success">登陆</button>
+
+    </form>
+</div>
+
 
 </body>
 </html>

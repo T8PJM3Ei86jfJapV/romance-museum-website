@@ -3,36 +3,132 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="{{static_url("css/imageItem.css")}}">
 </head>
 <!--这是博物馆页面，有很多图片，每个图片上面有一小段话-->
 <body>
 <div class="header">
-    <span class="exit">
+    {% if name %}
+    <span class="userName">
         <a href="/profile/{{id}}">{{name}}</a>
+    </span>
+    <span class="newArticle">
         <a href="/newBlog">发表文章</a>
+    </span>
+    <span class="exit">
         <a href="/logout">退出</a>
     </span>
+    {% else %}
+    <span class="newArticle">
+        <a href="/login">登录</a>
+    </span>
+    <span class="newArticle">
+        <a href="/signup">注册</a>
+    </span>
+    {% end %}
 </div>
 
 <div class="content">
     <!--这里会有一个个imageItem-->
     <!--这里需要两个字段，一个是图片的src,另一个是那一小段话-->
 
-    {% for imageItem in allImageItem %}
 
-        <div class="image-item">
-            <div class="image">
-                <img src="{{imageItem["src"]}}">
-                <!--imageItem.imageSrc-->
-            </div>
+
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/01.jpg")}}">
             <div class="expression">
-                <span>{{imageItem["content"]}}</span>
-                <!--imageItem.imageExpression-->
+                <span>做不了决定的时候，让时间帮你决定宁愿犯错，不留遗憾</span>
             </div>
-
         </div>
 
-    {% end for %}
+    </div>
+
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/02.jpg")}}">
+            <div class="expression">
+            <span>过去了就是昨天，新的一页翻开还是晴朗的天</span>
+        </div>
+        </div>
+
+    </div>
+
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/03.jpg")}}">
+            <div class="expression">
+                <span>宁愿犯错，不留遗憾</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/04.jpg")}}">
+            <div class="expression">
+                <span>一帘清雨，垂下了一汪泪，一份缠绵，揉断了心碎</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/05.jpg")}}">
+            <div class="expression">
+                <span>一生，一条路，一个人走，一个人悟</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/06.jpg")}}">
+            <div class="expression">
+                <span>滚滚红尘，陌上寒烟,前世的缘，今生相见</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/07.jpg")}}">
+            <div class="expression">
+                <span>多少次轻颦回眸，没有你在，无声的空旷刺疼了眼</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/08.jpg")}}">
+            <div class="expression">
+                <span>渐渐地才发现，失去的不可复回，拥有了，不等于是永恒</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/09.jpg")}}">
+            <div class="expression">
+                <span>看不见你的身影，寂寞开始蠢蠢欲动，吞噬我的灵魂</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="image-item">
+        <div class="image">
+            <img src="{{static_url("img/10.jpg")}}">
+            <div class="expression">
+                <span>斗转星移，月亏又圆，思念的蔓藤爬满了心田，相思的渡口，泊着我依旧不变的守候</span>
+            </div>
+        </div>
+
+    </div>
+
+
 
 
 </div>
