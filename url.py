@@ -26,7 +26,7 @@ url = [
     (r'/logout', LogoutHandler),
     (r'/update', UpdateUserInfoHandler),
     (r'/mailbox', MailboxHandler),
-    (r'/museum', MuseumHandler),
+    # (r'/museum', MuseumHandler),
     (r'/adminlogin',AdminLoginHandler),
     (r'/adminManage', AdminHandler),
     (r'/article/(\w+)', ArticleHandler),

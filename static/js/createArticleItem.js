@@ -13,8 +13,10 @@ $(document).ready(function(){
 
         var userName = $('.header .userName a').text();
         var articleContent = $('.contentInput textarea').val();
+        var encodeArticleContent = encodeURIComponent(articleContent);
         var type = $('input[name="mode"]').val();
         var title = $('.titleInput input').val();
+        var encodeTitle = encodeURIComponent(title);
         $.ajax({
             url: "/createArticle",
             type: 'POST',
@@ -25,11 +27,19 @@ $(document).ready(function(){
                 mode: type
             },
             success: function(data) {
-                window.location = "/article/" + data;
+                var url = '/article/'+ data;
+                redirect(url);
             }
         });
 
 
 
     });
+
+
+     function redirect(url){
+      
+        top.location.href=url;//redirection
+      
+    }
 });

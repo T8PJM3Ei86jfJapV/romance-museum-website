@@ -21,11 +21,11 @@ window.onload = function(){
     	objonblur(this);
     	issamePass($("pass").value);
     }
-    $("name").onfocus = function(){objonfocus(this);}
-    $("name").onblur = function(){
-    	objonblur(this);
-    	isvalidName();
-    }
+    // $("name").onfocus = function(){objonfocus(this);}
+    // $("name").onblur = function(){
+    // 	objonblur(this);
+    // 	isvalidName();
+    // }
     $("qq").onblur = function(){isvalidQQ();}
     $("email").onfocus = function(){objonfocus(this);}
     $("email").onblur = function(){
@@ -55,23 +55,27 @@ function tipstyle(obj){
 function isvalidAcc(){
 	var acc = $("acc").value;
 	var validate = RegExp(/^[0-9a-zA-Z]*$/g).test(acc);
-	if((acc != "必填") && (!validate || acc.length < 6 || acc.length > 32)){
-		$("acctip").innerHTML = "6-32位字母数字";
+	if((acc != "必填") && (!validate || acc.length < 3)){
+		$("acctip").innerHTML = "不少于3位字母";
 		tipstyle($("acctip"));
+		
 	}
 	else{
 		$("acctip").innerHTML = "";
+		
 	}
 }
 
 function isvalidPass(){
 	var pass = $("pass").value;
-	if((pass != "必填") && (pass.length < 10)){
-		$("passtip").innerHTML = "长度不少于10位";
+	if((pass != "必填") && (pass.length < 3)){
+		$("passtip").innerHTML = "长度不少于3位";
 		tipstyle($("passtip"));
+		
 	}
 	else{
 		$("passtip").innerHTML = "";
+		
 	}
 }
 
@@ -80,22 +84,14 @@ function issamePass(pass){
 	if((repass != "必填") && (repass != pass)){
 		$("repasstip").innerHTML = "重输密码不一致";
 		tipstyle($("repasstip"));
+		
 	}
 	else{
 		$("repasstip").innerHTML = "";
+		
 	}
 }
 
-function isvalidName(){
-	var name = $("name").value;
-	if((name != "必填") && (name.indexOf("展强")!=-1 || name.indexOf("老韩")!=-1 || name.indexOf("珍权")!=-1 || name.indexOf("翼道")!=-1)){
-        $("nametip").innerHTML = "含有敏感字";
-        tipstyle($("nametip"));
-	}
-	else{
-		$("nametip").innerHTML = "";
-	}
-}
 
 function isvalidQQ(){
 	var qq = $("qq").value;
@@ -103,9 +99,11 @@ function isvalidQQ(){
 	if((qq != "") && (!validate)){
 		$("qqtip").innerHTML = "QQ号不正确";
 		tipstyle($("qqtip"));
+		
 	}
 	else{
 		$("qqtip").innerHTML = "";
+		
 	}
 }
 
@@ -115,9 +113,11 @@ function isvalidEmail(){
 	if((email != "必填") && (!validate)){
 		$("emailtip").innerHTML = "邮箱不正确";
 		tipstyle($("emailtip"));
+		
 	}
 	else{
 		$("emailtip").innerHTML = "";
+		
 	} 
 }
 

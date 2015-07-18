@@ -13,7 +13,7 @@
 
 <div class="header">
     <span class="userName">
-        <a href="/profile/{{id}}">{{name}}</a>
+        <a href="/profile/{{user}}">{{user}}</a>
     </span>
     <span class="newArticle">
         <a href="/newBlog">发表文章</a>
@@ -36,6 +36,18 @@
 
         <!-- Tab panes -->
         <div class="tab-content">
+
+            <div role="tabpanel" class="tab-pane" id="articleItems">
+                {%  for article in articles%}
+                <div class="articleItem">
+                    <a href="/aticle/{{article['aid']}}">
+                        <span class="articleTitle">{{article['title']}}</span>
+                    </a>
+                    <button class="btn btn-danger">删除</button>
+                </div>
+                {% end for %}
+            </div>
+
             <div role="tabpanel" class="tab-pane" id="imageItems">
                 <div class="image-item">
                     <div class="image">
@@ -140,6 +152,7 @@
                     <button class="btn btn-danger">删除</button>
                 </div>
             </div>
+
         </div>
 
     </div>

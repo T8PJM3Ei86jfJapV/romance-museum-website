@@ -3,16 +3,32 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 	<title>注册界面</title>
-	<link rel="stylesheet" type="text/css" href="{{static_url("css/main.css")}}">
+	<link rel="stylesheet" type="text/css" href="{{static_url("css/reg.css")}}">
 	<script type="text/javascript" src="{{static_url("js/reg.js")}}"></script>
 </head>
 <body>
-	<div id="topimg">
+	<div id="outer">
+
+		<div class="header">
+			<div class="logo">
+				<a href="/">
+					<span class="index item">
+						思•恋
+					</span>
+				</a>
+			</div>
+			<div class="actions">
+		        <span class="reg item">
+					<a href="/login">登录</a>
+				</span>
+			</div>
+		</div>
+
 			<div id="reg">
 				<div>用户注册</div><hr width="225">
 				<form method ="post">
 					<div class="input">
-						<span class="tip">账号名：</span>
+						<span class="tip">用户名：</span>
 						<input type="text" name="user" value="必填" id="acc" maxlength="32">
 						<span id="acctip"></span>
 					</div>
@@ -26,11 +42,11 @@
 						<input type="text" name="repassword" value="必填" id="repass">
 						<span id="repasstip"></span>
 					</div>
-					<div class="input">
+					<!-- <div class="input">
 						<span class="tip">用户名：</span>
 						<input type="text" name="name" value="必填" id="name" >
 						<span id="nametip"></span>
-					</div>
+					</div> -->
 					<div class="input">
 						<span class="tip">QQ号码：</span>
 						<input type="text" name="qq" id="qq">

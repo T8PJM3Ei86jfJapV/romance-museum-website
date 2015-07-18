@@ -2,13 +2,14 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="{{static_url("css/userinfo.css")}}">
+  <link rel="stylesheet" type="text/css" href="{{static_url("css/changeUserInfo.css")}}">
   <link href="{{static_url("css/bootstrap.min.css")}}" rel="stylesheet">
+  <script type="text/javascript" src="{{static_url("js/jquery-1.11.1.min.js")}}"></script>
 </head>
 <body>
   <div class="header">
       <span class="userName">
-          <a href="/profile/{[id}}">{{name}}</a>
+          <a href="/profile/{{user}}">{{user}}</a>
       </span>
       <span class="newArticle">
           <a href="/newBlog">发表文章</a>
@@ -18,13 +19,32 @@
       </span>
   </div>
   <div id="passwordChange" name="passwordChange">
-       <form action=""  class="form3" method = "post">
+    <p><strong>{{user}}</strong>欢迎你！</p>
+
+    <div class="userInfo change">
+      <p>用户信息修改</p>
+      <form id="userInfoForm">
         <ul>
           <li>
-            <label for = "userName">用户名:</label><input type = "text" id="userName" class = "userName" name="userName" maxlength="16"/>
-            <span>(请输入您的用户名)</span>
+            <label for = "email">邮箱:</label><input type = "text" id="email" class = "email" name="email" maxlength="20"/>
+            <span>(请输入您的邮箱)</span>
           </li>
           <li>
+            <label for = "qq">QQ:</label><input type = "text" id="qq" class = "qq" name="qq" maxlength="16"/>
+            <span>(可选)</span>
+          </li>
+          <li id="userInfoButton">
+           <button class="btn btn-warning" type="submit">确认修改</button>
+           <button class="btn btn-warning" id="userInfoCancelChange">取消修改</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+    <div class="password change">
+      <p>用户密码修改</p>
+      <form id="passwordForm">
+        <ul>
+         <li>
             <label for = "orginalPassword">原有密码:</label><input type = "password" id="orginalPassword" class = "orginalPassword" name="orginalPassword" maxlength="16"/>
             <span>(请输入您的原有密码)</span>
           </li>
@@ -36,22 +56,14 @@
             <label for = "password-confirm">确认密码：</label><input type="password" id="password-confirm" class = "password-confirm" name="password-confirm" placeholder="确认密码" maxlength="16" />
             <span>(请再次输入相同的密码)</span>
           </li>
-          <li>
-            <label for = "email">邮箱:</label><input type = "text" id="email" class = "email" name="email" maxlength="20"/>
-            <span>(请输入您的邮箱)</span>
-          </li>
-          <li>
-            <label for = "qq">QQ:</label><input type = "text" id="qq" class = "qq" name="qq" maxlength="16"/>
-            <span>(可选)</span>
-          </li>
-          <li id="submitButton">
+           <li id="passwordButton">
            <button class="btn btn-warning" type="submit">确认修改</button>
-           <button class="btn btn-warning" id = "cancelChange">取消修改</button>
+           <button class="btn btn-warning" id = "passwordCancelChange">取消修改</button>
          </li>
-
-       </ul>
-     </form>
-   </div>
-
+        </ul>
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="{{static_url("js/changeInfo.js")}}"></script>
 </body>
 </html>

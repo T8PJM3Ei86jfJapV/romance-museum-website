@@ -7,8 +7,16 @@
 </head>
 <body>
    <div class="header">
-        <span class="userName">
-            <a href="/profile/{{id}}">{{name}}</a>
+    <div class="logo">
+        <a href="/">
+          <span class="index item">
+            思•恋
+          </span>
+        </a>
+    </div>
+    <div class="actions">
+      <span class="userName">
+            <a href="/profile/{{user}}">{{user}}</a>
         </span>
         <span class="newArticle">
             <a href="/newBlog">发表文章</a>
@@ -17,38 +25,48 @@
             <a href="/logout">退出</a>
         </span>
     </div>
+        
+    </div>
 
-    <div class="message">
-     <ul>
-      <li>
-        <span class ="messageTitle"><b>用户名：</b></span><span class = "messageDetail">{{name}}</span>
-      </li>
-      <li>
-        <span class ="messageTitle"><b>邮箱：</b></span><span class = "messageDetail">{{mail}}</span>
-      </li>
-      <li>
-        <span class ="messageTitle"><b>qq：</b></span><span class = "messageDetail">{{qq}}</span>
-      </li>
-      <li><span class ="messageEdit"><a href="/update" id="change">[修改个人信息]</a></span></li><br><br><br>
-      <li>
-        <span class ="messageTitle"><b>我发布的恋文：</b></span><span class = "messageDetail">
-        {% for art in arts%}
-          <a href="/article/{{art[0]}}" class = "messageTitle"> {{art[1]}}</a>
-          <br>
-        {% end %}
-        </span>
-      </li><br>
-      <li>
-        <span class ="messageTitle"><b>我发布的博物馆：</b></span><span class = "messageDetail">
-        {% for mus in muss%}
-          <a href="/article/{{mus[0]}}" class = "messageTitle"> {{mus[1]}}</a>
-          <br>
-        {% end %}
-        </span>
-      </li>
-
-    </ul>
-  </div>
+    <div class="content">
+      <div class="userInfo">
+        <p>这里是你的个人信息</p>
+        <ul>
+          <li>
+            <span class ="name item">
+              <span class="title">用户名:</span>{{user}}
+            </span>
+          </li>
+          <li>
+            <span class="qq item">
+              <span class="title">邮箱:</span> {{mail}}
+            </span>
+          </li>
+          <li>
+            <span class ="messageEdit item">
+              <a href="/update" id="change">[修改个人信息]</a>
+            </span>
+          </li>
+        </ul>
+      <div>
+      <div class="articles">
+        <p>这里是你发布过的文章</p>
+        {% for article in articles %}
+        <div class="articleItem">
+          <div class="articleHeader">
+            <a href="/article/{{article[0]}}" class = "messageTitle">
+              <span class="articleTitle item">{{article[1]}}</span>
+            </a>
+          </div>
+          <div class="articleContent">
+             <pre>
+              {{article[2]}}
+             </pre>
+          </div>
+        </div>
+        {% end for %}
+      </div>
+    </div>
 
 </body>
 </html>

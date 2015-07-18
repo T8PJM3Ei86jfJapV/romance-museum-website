@@ -68,3 +68,14 @@ a {
 .content .image-item button {
     margin-top: 2%;
 }
+
+.articleItem {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 3%;
+}
+
+.articleItem span {
+    color: black;
+    font-size: 1.5rem;
+}

@@ -3,44 +3,65 @@
 <head>
 	<meta charset='UTF-8'>
     <link rel="stylesheet" href="{{static_url("css/article.css")}}">
+    <link href="{{static_url("css/bootstrap.min.css")}}" rel="stylesheet">
 </head>
 <body>
 	<div class="header">
-        <span class="userName">
-            <a href="/profile/{{id}}">{{name}}</a>
-        </span>
-        <span class="newArticle">
-            <a href="/newBlog">发表文章</a>
-        </span>
-        <span class="exit">
-            <a href="/logout">退出</a>
-        </span>
-    </div>
-	<div class='body left'>
-        <ul class="userInfo">
-            <li class="item userName" href="/profile/{{txt["Autid"]}}">
-                {{txt["Autname"]}}
-                <!--此处需要替换成字段-->
-            </li>
-            <li class="item userEmail">
-                {{txt["Autmail"]}}
-                <!--此处需要替换成字段-->
-            </li>
-            <li>
-                {{txt["Autqq"]}}
-            </li>
-        </ul>
 
-	</div>
-	<div class='body right'>
-        <div class="articleDetial">
-            <h1>{{txt["Title"]}}</h1>
-            <span class="author" href="/profile/{{txt["Autid"]}}">{{txt["Autname"]}}</span>
-            <div class="content">
-                {{txt["Content"]}}
-            </div>
-            <!--此处需要替换成字段-->
+        <div class="logo">
+            <a href="/">
+              <span class="index item">
+                思•恋
+              </span>
+            </a>
         </div>
-	</div>
+        <div class="actions">
+            <span class="userName">
+                <a href="/profile/{{user}}">{{user}}</a>
+            </span>
+            <span class="newArticle">
+                <a href="/newBlog">发表文章</a>
+            </span>
+            <span class="exit">
+                <a href="/logout">退出</a>
+            </span>
+        </div>
+    
+    </div>
+    <div class='content'>
+        <div class='left'>
+                <ul class="userInfo">
+                    <li class="item userName" href="/profile/{{articleInfo["Authorname"]}}">
+                        用户名： {{articleInfo["Authorname"]}}
+                        <!--此处需要替换成字段-->
+                    </li>
+                    <li class="item userEmail">
+                        邮箱： {{articleInfo["Authormail"]}}
+                        <!--此处需要替换成字段-->
+                    </li>
+                    <li class="userQQ">
+                        QQ: {{articleInfo["Authorqq"]}}
+                    </li>
+                </ul>
+            </div>
+            <div class='right'>
+                <div class="articleDetial">
+                    <div class="articleHeader">
+                        <h1 class="articleTitle">{{articleInfo["Title"]}}</h1>
+                        <span class="articleAuthor" href="/profile/{{articleInfo["Authorname"]}}">
+                            作者：{{articleInfo["Authorname"]}}
+                        </span>
+                    </div>
+                    <div class="articleContent">
+                        <pre>
+                           {{articleInfo["Content"]}} 
+                        </pre>
+                        
+                    </div>
+                    <!--此处需要替换成字段-->
+                </div>
+            </div>
+    </div>
+	
 </body>
 </html>

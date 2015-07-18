@@ -24,15 +24,26 @@
 </head>
 <body>
 <div class="header">
-    <span class="userName">
-        <a href="/profile/{{id}}">{{name}}</a>
-    </span>
-    <span class="newArticle">
-        <a href="/newBlog">发表文章</a>
-    </span>
-    <span class="exit">
-        <a href="/logout">退出</a>
-    </span>
+
+    <div class="logo">
+        <a href="/">
+          <span class="index item">
+            思•恋
+          </span>
+        </a>
+    </div>
+    <div class="actions">
+        <span class="userName">
+            <a href="/profile/{{user}}">{{user}}</a>
+        </span>
+        <span class="newArticle">
+            <a href="/newBlog">发表文章</a>
+        </span>
+        <span class="exit">
+            <a href="/logout">退出</a>
+        </span>
+    </div>
+    
 </div>
 <div class="content">
     <div class="titleInput">

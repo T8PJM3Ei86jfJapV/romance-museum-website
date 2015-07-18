@@ -40,8 +40,8 @@ function isvalidAcc(){
 	var acc = $("acc").value;
 	var validate = RegExp(/^[0-9a-zA-Z]*$/g).test(acc);
 	if((acc != "必填") && (!validate || acc.length < 6 || acc.length > 32)){
-		$("acctip").innerHTML = "6-32位字母数字";
-		tipstyle($("acctip"));
+		// $("acctip").innerHTML = "6-32位字母数字";
+		// tipstyle($("acctip"));
 	}
 	else{
 		$("acctip").innerHTML = "";
@@ -51,8 +51,8 @@ function isvalidAcc(){
 function isvalidPass(){
 	var pass = $("pass").value;
 	if((pass != "必填") && (pass.length < 10)){
-		$("passtip").innerHTML = "长度至少为10位";
-		tipstyle($("passtip"));
+		// $("passtip").innerHTML = "长度至少为10位";
+		// tipstyle($("passtip"));
 	}
 	else{
 		$("passtip").innerHTML = "";

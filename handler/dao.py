@@ -14,7 +14,7 @@ DB_PSWD = sae.const.MYSQL_PASS
 
 def execute(sql):
     try:
-        db = torndb.Connection(DB_HOST, DB_NAME, user = DB_USER, password = DB_PSWD, time_zone = "+8:00")
+        db = torndb.Connection(DB_HOST, DB_NAME, user = DB_USER, password = DB_PSWD, time_zone = "+8:00", charset="utf8")
         outcome = db.execute(sql)
     except:
         outcome = -1
@@ -27,7 +27,7 @@ def execute(sql):
 
 def query(sql):
     try:
-        db = torndb.Connection(DB_HOST, DB_NAME, user = DB_USER, password = DB_PSWD, time_zone = "+8:00")
+        db = torndb.Connection(DB_HOST, DB_NAME, user = DB_USER, password = DB_PSWD, time_zone = "+8:00", charset="utf8")
         outcome = db.query(sql)
     except:
         print '[Failed] Executing \"' + sql + '\"'
@@ -63,8 +63,13 @@ def verify_user(uid, psw):
     else:
         return False
 
-def get_random_articles(num):
-    sql = 'SELECT a_id AS aid FROM article LIMIT %d;' % num
+# def get_random_articles(num):
+#     sql = 'SELECT a_id AS aid FROM article LIMIT %d;' % num
+#     outcome = query(sql)
+#     return outcome
+
+def get_mailbox_articles():
+    sql = 'SELECT a_id FROM article'
     outcome = query(sql)
     return outcome
 
