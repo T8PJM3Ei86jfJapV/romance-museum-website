@@ -1,0 +1,10 @@
+必须软件安装
+1. tornado服务器
+2. mysql数据库
+3. python2
+4. mysql-pytohn
+
+运行方法：
+切换到code目录下,运行
+python server.py
+之后在127.0.0.1：8000页面打开，即可访问我的网站
